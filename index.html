@@ -2,6 +2,13 @@
 	<head>
     
     	<style>
+        	body {
+            	background:url('https://duskfire.files.wordpress.com/2011/08/pyracerz.png') top no-repeat;
+                background-size:cover;
+                height:1000px;
+                width:1000px;
+            }
+        
         	#character_1 {
             	left:0px;
                 top:0px;
@@ -11,9 +18,19 @@
             	background:url('http://guidesmedia.ign.com/guides/059687/images/blackwhite/pokemans_025.gif') center;
                 background-size: 128px 128px;
             }
+            
+            
+            
         </style>
 
     	<script>
+                    
+            function readMouseMove(e){
+				console.log(e.clientX + ":" + e.clientY);
+            }
+
+            document.onmousemove = readMouseMove;
+
             	var new_direction;
                 var new_x;
                 var new_y;
@@ -42,7 +59,7 @@
 					old_x = getPos(character).x;
 					old_y = getPos(character).y;
                     old_x = old_x - 10;
-					if (old_x > 0) {
+					if (old_x > 30) {
                 		character.style.left = old_x;
                     }
                 
@@ -50,14 +67,14 @@
 					old_x = getPos(character).x;
 					old_y = getPos(character).y;
                     old_x = old_x + 10;
-					if (old_x < (window.innerWidth - 128)) {
+					if (old_x < (window.innerWidth - 150)) {
                 		character.style.left = old_x;
                     }
 				} else if (new_direction == "up") {
 					old_x = getPos(character).x;
 					old_y = getPos(character).y;
                     old_y = old_y - 10;
-					if (old_y > 0) {
+					if (old_y > 40) {
                 		character.style.top = old_y;
                     }
                 
@@ -75,13 +92,12 @@
                 	new_direction = "right";
                 }
 			}
-            
         </script>
 
 	</head>
     <body>
         
-        <div id="character_1" onmouseover="alert('you lose!')">
+        <div id="character_1" onmouseover="">
         </div>
 		<script>
         	setInterval("move_character()",1);
